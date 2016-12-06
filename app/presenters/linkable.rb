@@ -42,8 +42,14 @@ private
 
   def organisations_with_emphasised_first
     expanded_links_from_content_item("organisations").sort_by do |organisation|
-      is_emphasised = organisation["content_id"].in?(content_item["details"]["emphasised_organisations"])
+      is_emphasised = organisation["content_id"].in?(emphasised_organisations)
       is_emphasised ? -1 : 1
     end
+  end
+
+  # Not all formats emphasise organisations
+  # The array might not exist
+  def emphasised_organisations
+    content_item["details"]["emphasised_organisations"] || []
   end
 end
