@@ -1,6 +1,7 @@
 module Updatable
   def published
-    display_date(content_item["details"]["first_public_at"])
+    date = content_item["details"]["first_public_at"] || content_item["public_updated_at"]
+    display_date(date)
   end
 
   def updated
