@@ -38,3 +38,8 @@
 @import "views/statistical-data-set";
 @import "views/consultation";
 @import "views/speech";
+
+
+// govuk overrides, seperated out to make them obvious in the alpha
+@import "govuk-component-overrides/metadata";
+

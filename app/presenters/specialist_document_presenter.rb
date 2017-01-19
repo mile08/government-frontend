@@ -9,6 +9,14 @@ class SpecialistDocumentPresenter < ContentItemPresenter
     content_item["details"]["body"]
   end
 
+  def metadata
+    super.tap do |md|
+      metadata = content_item["details"]["metadata"].reject{ |m| m == "document_type" }
+      metadata = metadata.transform_keys{ |md| md.to_s.humanize }
+      md[:other].merge!(metadata)
+      return md
+    end
+  end
 
   def contents
     extract_headings_with_ids(body).map do |heading|
