@@ -3,9 +3,10 @@
 
 <div class="grid-row">
   <div class="column-two-thirds">
-    <%= render 'govuk_component/title',
-        context: t("content_item.format.#{@content_item.document_type}", count: 1),
-        title: @content_item.title %>
+    <%= render partial: "govuk_component/title", locals: {
+          title: @content_item.country,
+          context: "Foreign travel advice"
+    } %>
   </div>
 </div>
 
