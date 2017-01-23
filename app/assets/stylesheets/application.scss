@@ -38,12 +38,10 @@
 @import "views/statistical-data-set";
 @import "views/consultation";
 @import "views/speech";
-<<<<<<< HEAD
 @import "views/world-location-news-article";
-=======
 @import "views/specialist-document";
+@import "views/travel-advice";
 
->>>>>>> get the footer rendering correctly
 
 // govuk overrides, seperated out to make them obvious in the alpha
 @import "govuk-component-overrides/metadata";
