@@ -2,7 +2,7 @@
 
 <%= render 'shared/title_and_translations', content_item: @content_item %>
 <%= render 'shared/withdrawal_notice', content_item: @content_item %>
-<%= render 'shared/metadata', content_item: @content_item %>
+<%= render 'govuk_component/metadata', @content_item.metadata %>
 <%= render 'shared/history_notice', content_item: @content_item %>
 <%= render 'shared/description', description: @content_item.description %>
 <%= render 'shared/sidebar_with_body', content_item: @content_item %>

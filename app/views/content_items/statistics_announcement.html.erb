@@ -10,7 +10,7 @@
 </div>
 
 <div class="primary-metadata">
-  <%= render 'shared/metadata', content_item: @content_item %>
+  <%= render 'govuk_component/metadata', @content_item.metadata %>
 </div>
 <% if @content_item.cancelled? %>
   <div class="cancellation-notice">
