@@ -5,7 +5,7 @@ class ContentItemPresenter
 
   delegate :breadcrumbs, to: :@nav_helper
 
-  def initialize(content_item)
+  def initialize(content_item, params)
     @content_item = content_item
     @title = content_item["title"]
     @description = content_item["description"]
@@ -14,6 +14,7 @@ class ContentItemPresenter
     @phase = content_item["phase"]
     @document_type = content_item["document_type"]
     @nav_helper = GovukNavigationHelpers::NavigationHelper.new(content_item)
+    @params = params
   end
 
   def available_translations

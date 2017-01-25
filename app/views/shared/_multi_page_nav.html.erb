@@ -1,0 +1,37 @@
+<% section = @content_item.is_section? %>
+<aside class="page-navigation-container" role="complementary">
+  <nav role="navigation" class="page-navigation" aria-label="parts to this guide">
+
+    <ol class="grid-row">
+      <li class="column-half">
+        <% if section %>
+        <a title="Summary" href="/foreign-travel-advice/turkey">
+        <% end %>
+
+          <span class="part-title">
+            Summary
+          </span>
+          <span class="part-description">
+            Current travel advice
+          </span>
+
+        <% if section %>
+        </a>
+        <% end %>
+      </li>
+      <% @content_item.subsections.each do |subsection| %>
+      <li class="column-half">
+          <%= link_to_unless_current subsection["title"], subsection["link"] %>
+      </li>
+      <% end %>
+    </ol>
+
+  </nav>
+  <section class="subscriptions">
+    <h1 class="visuallyhidden">Subscriptions</h1>
+    Get updates
+    <ul>
+
+    </ul>
+  </section>
+</aside>
