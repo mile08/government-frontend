@@ -1,12 +1,3 @@
-<% if contents.any? %>
-  <nav role="navigation">
-    <h1><%= t("content_item.contents") %></h1>
-    <ol class="dash-list" data-module="track-click">
-      <% contents.each do |heading| %>
-        <li>
-          <%= heading %>
-        </li>
-      <% end %>
-    </ol>
-  </nav>
-<% end %>
+<%= render partial: 'govuk_component/contents_list', locals: {
+  items: contents
+} %>
