@@ -40,3 +40,10 @@
 @import "views/speech";
 @import "views/world-location-news-article";
 @import "views/news-article";
+@import "views/specialist-document";
+@import "views/travel-advice";
+
+
+// govuk overrides, seperated out to make them obvious in the alpha
+@import "govuk-component-overrides/metadata";
+

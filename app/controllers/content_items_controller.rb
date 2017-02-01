@@ -22,7 +22,7 @@ private
   def present(content_item)
     presenter_name = content_item['schema_name'].classify + 'Presenter'
     presenter_class = Object.const_get(presenter_name)
-    presenter_class.new(content_item)
+    presenter_class.new(content_item, params)
   rescue NameError
     raise "No support for schema \"#{content_item['schema_name']}\""
   end
@@ -42,7 +42,11 @@ private
   end
 
   def content_item_path
-    '/' + URI.encode(params[:path])
+    path = URI.encode(params[:path])
+    if params[:content_item_prepend]
+      path = URI.encode(params[:content_item_prepend])  + path
+    end
+    '/' + path
   end
 
   def content_store

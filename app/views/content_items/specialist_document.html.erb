@@ -1,0 +1,45 @@
+<%= content_for :page_class, @content_item.format.dasherize %>
+<%= content_for :title, @content_item.title %>
+
+<div class="grid-row">
+  <div class="column-two-thirds">
+    <%= render 'govuk_component/title',
+        context: t("content_item.format.#{@content_item.document_type}", count: 1),
+        title: @content_item.title,
+        average_title_length: 'long' %>
+  </div>
+</div>
+<%= render 'shared/metadata', content_item: @content_item %>
+
+<%= render 'shared/description', description: @content_item.description %>
+
+<div class="grid-row sidebar-with-body">
+  <div class="column-third">
+    <% if @content_item.headings %>
+      <ol>
+        <%= render 'shared/nav_item', headings: @content_item.headings %>
+      </ol>
+    <% elsif @content_item.contents.any? %>
+      <%= render 'shared/sidebar_contents', contents: @content_item.contents %>
+    <% end %>
+  </div>
+  <div class="column-two-thirds <% unless @content_item.contents.any? %>offset-one-third<% end %>">
+    <%= render 'govuk_component/govspeak',
+        content: @content_item.body,
+        direction: page_text_direction %>
+  </div>
+</div>
+
+<footer>
+  <%= render partial: 'govuk_component/document_footer', locals: {
+    other: @content_item.metadata[:other],
+    history: @content_item.change_history.reverse.map { |c|
+      {
+        display_time: c["public_timestamp"],
+        timestamp: c["public_timestamp"],
+        note: c["note"],
+      }
+    }
+  }.merge(@content_item.footer_date_metadata)
+  %>
+</footer>
