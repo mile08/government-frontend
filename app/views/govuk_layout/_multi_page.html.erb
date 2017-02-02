@@ -1,0 +1,36 @@
+<%= content_for :page_class, @content_item.format.dasherize %>
+<%= content_for :title, @content_item.title %>
+
+<div class="grid-row">
+  <div class="column-two-thirds">
+    <%= render partial: "govuk_component/title", locals: {
+          title: @content_item.title,
+          context:  @content_item.context } %>
+    <%= render 'shared/multi_page_nav' %>
+    <% if @content_item.show_metadata? %>
+    <div>
+      <%= render 'govuk_component/metadata', other: {
+        "Still current at" => Date.today.strftime("%e %B %Y"),
+        "Updated" => @content_item.last_reviewed_or_updated_at.strftime("%e %B %Y"),
+        "Latest update" => simple_format(@content_item.latest_update) } %>
+    </div>
+    <% end %>
+
+
+    <div>
+      <%= render 'govuk_component/govspeak',
+          content: @content_item.body,
+          direction: page_text_direction %>
+    </div>
+
+  </div>
+  <div class="column-one-third">
+    <%= render partial: 'govuk_component/related_items', locals: { sections: @content_item.related_links } %>
+  </div>
+</div>
+<div class="grid-row">
+
+</div>
+
+
+
