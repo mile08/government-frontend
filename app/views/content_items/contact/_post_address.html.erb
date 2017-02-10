@@ -1,0 +1,15 @@
+<% if post_address.description.present? %>
+  <div class="description govspeak">
+    <%= raw post_address.description %>
+  </div>
+<% end %>
+<div class="vcard">
+  <div class="fn"><%= post_address.title %></div>
+  <div class="street-address"><%= post_address.street_address %></div>
+  <div class="locality"><%= post_address.locality %></div>
+  <div class="region"><%= post_address.region %></div>
+  <div class="postal-code"><%= post_address.postal_code %></div>
+  <% if post_address.world_location.present? %>
+  <div class="country-name"><%= post_address.world_location %></div>
+  <% end %>
+</div>

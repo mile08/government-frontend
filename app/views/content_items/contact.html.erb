@@ -1,0 +1,46 @@
+<% content_for :extra_headers do %>
+  <% if @content_item.description.present? %>
+    <meta name='description' content='<%= @content_item.description %>' />
+  <% end %>
+<% end %>
+
+<% content_for :page_title, "#{@content_item.title} - Contact #{@content_item.organisation.title}" %>
+
+<%= render partial: "govuk_component/breadcrumbs", locals: {
+  breadcrumbs: [
+    {
+      title: "Home",
+      url: "/",
+    },
+    {
+      title: @content_item.organisation.title,
+      url: @content_item.organisation.base_path,
+    },
+    {
+      title: "Contact #{@content_item.organisation.title}",
+      url: "#{@content_item.organisation.base_path}/contact",
+    },
+  ]
+} %>
+
+<div class="grid-row">
+  <header class="header-block">
+    <div class="heading">
+      <h1><%= @content_item.title %></h1>
+    </div>
+  </header>
+
+  <div class="beta-wrapper">
+    <%= render 'govuk_component/beta_label' %>
+  </div>
+
+  <%= render "content_items/contact/contact_details", content_item: @content_item %>
+
+  <% if @content_item.query_response_time %>
+    <p class="response"><%= link_to "Find out when to expect a response to your query", "http://www.hmrc.gov.uk/tools/progress-tool/index.htm" %></p>
+  <% end -%>
+</div>
+
+<div class="related-container">
+  <%# render partial: "govuk_component/related_items", locals: RelatedItems.new(@content_item).payload %>
+</div>
