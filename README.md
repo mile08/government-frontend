@@ -78,8 +78,12 @@ With government-frontend running on the [development VM](https://github.gds/gds/
 the project directory and run
 ```
 cd test/wraith
-bundle install # only need to run this once to grab the dependencies
+bundle install
+bundle exec wraith capture config.yaml
 ```
+to test a custom config use the following filename pattern `wip-config-*.yaml` this is gitignored
+
+
 
 #### Compare with production
 

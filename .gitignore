@@ -14,5 +14,6 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+/test/wraith/wip-config-*
 
 /public/government-frontend
