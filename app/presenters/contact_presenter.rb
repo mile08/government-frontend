@@ -112,6 +112,10 @@ class ContactPresenter < ContentItemPresenter
     ]
   end
 
+  def query_response_time
+    content_item["details"]["query_response_time"]
+  end
+
   private
 
   # This is terrible, a govuk_component should maybe

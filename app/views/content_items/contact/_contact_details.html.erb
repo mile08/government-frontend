@@ -1,10 +1,10 @@
 <% if content_item.contact_form_links.any? %>
-  <div class="online-forms">
+  <div class="online-forms govuk-govspeak">
     <h2>Online forms</h2>
     <ul class="form-links">
       <%= render partial: "content_items/contact/contact_form_link", collection: content_item.contact_form_links %>
     </ul>
-    <div class="govspeak">
+    <div class="govuk-govspeak">
       <%= raw content_item.more_info_contact_form %>
     </div>
   </div>
@@ -16,7 +16,7 @@
     <ul class="email">
       <%= render partial: "content_items/contact/email_address", collection: content_item.email_addresses %>
     </ul>
-    <div class="govspeak">
+    <div class="govuk-govspeak">
       <%= raw content_item.more_info_email_address.to_s %>
     </div>
   </div>
@@ -25,7 +25,7 @@
 <% if content_item.show_webchat? %>
   <h2 class="details-header">Webchat</h2>
   <div class="details js-webchat">
-    <div class="description govspeak">
+    <div class="description govuk-govspeak">
       <p class="js-webchat-advisers-error">
         Webchat is unavailable at the moment because of technical problems.
       </p>
@@ -46,7 +46,7 @@
   <h2 class="details-header">Phone</h2>
   <div class="details">
     <%= render partial: "content_items/contact/phone_number", collection: content_item.phone_numbers %>
-  <div class="govspeak">
+  <div class="govuk-govspeak">
       <%= raw content_item.more_info_phone_number %>
     </div>
   </div>
@@ -56,7 +56,7 @@
   <h2 class="details-header">Post</h2>
   <div class="details">
     <%= render partial: "content_items/contact/post_address", collection: content_item.post_addresses %>
-    <div class="govspeak">
+    <div class="govuk-govspeak">
       <%= raw content_item.more_info_post_address %>
     </div>
   </div>

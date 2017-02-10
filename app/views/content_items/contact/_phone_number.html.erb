@@ -34,7 +34,7 @@
   </ul>
 
   <% if phone_number.description.present? %>
-    <div class="description govspeak">
+    <div class="description govuk-govspeak">
       <%= raw phone_number.description %>
     </div>
   <% end %>
@@ -43,14 +43,14 @@
 
   <% if phone_number.open_hours.present? %>
     <h4>Opening times:</h4>
-    <div class="govspeak">
+    <div class="govuk-govspeak">
       <%= raw phone_number.open_hours %>
     </div>
   <% end %>
 
   <% if phone_number.best_time_to_call.present? %>
     <h4>Best time to call:</h4>
-    <div class="govspeak">
+    <div class="govuk-govspeak">
       <%= raw phone_number.best_time_to_call %>
     </div>
   <% end %>
