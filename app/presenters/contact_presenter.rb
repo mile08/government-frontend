@@ -32,6 +32,24 @@ class ContactPresenter < ContentItemPresenter
     end
   end
 
+
+  def breadcrumbs
+    [
+      {
+        title: "Home",
+        url: "/",
+      },
+      {
+        title: organisation.title,
+        url: organisation.base_path,
+      },
+      {
+        title: "Contact #{organisation.title}",
+        url: "#{organisation.base_path}/contact",
+      },
+    ]
+  end
+
   def format
     content_item["format"]
   end
@@ -76,5 +94,30 @@ class ContactPresenter < ContentItemPresenter
       '/government/organisations/hm-revenue-customs/contact/construction-industry-scheme',
     ]
     whitelisted_paths.include?(@content_item["base_path"])
+  end
+
+  # WIP
+  def related_links
+    sections = []
+
+    if content_item["quick_links"].to_a.any?
+      sections << {
+        title: "Elsewhere on GOV.UK",
+        items: content_item["quick_links"].map { |quick_link|
+          { title: quick_link.title, url: quick_link.url }
+        }
+      }
+    end
+
+    if content_item["related_links"].to_a.any?
+      sections << {
+        title: "Other contacts",
+        items: contact["quick-links"].map { |related_link|
+          { title: related_link.fetch("title"), url: related_link.fetch("base_path") }
+        }
+      }
+    end
+
+    sections
   end
 end

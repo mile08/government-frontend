@@ -1,0 +1,152 @@
+.contact {
+  ul {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  .header-block {
+    @extend %contain-floats;
+    margin: $gutter 0 0;
+
+    h1 {
+      @include core-48;
+      font-weight: 700;
+      margin-bottom: $gutter;
+
+      @include media(tablet) {
+        padding-right: $gutter;
+        margin-bottom: 0  ;
+      }
+    }
+    .heading-extra {
+      ul {
+        padding-left: 0;
+      }
+    }
+
+    @include media(tablet) {
+      margin-bottom: $gutter;
+    }
+  }
+
+  h2 {
+    @include core-36;
+    clear: both;
+    font-weight: 700;
+    margin: $gutter*1.5 0 $gutter-one-third;
+
+    @include media(tablet) {
+      margin: 0 0 $gutter;
+    }
+  }
+
+  .details {
+    margin-bottom: $gutter;
+    @include media(tablet) {
+      margin-bottom: $gutter*2;
+    }
+
+    .times {
+      padding-top: $gutter-half;
+    }
+
+    .email {
+      margin-top: $gutter;
+      li {
+        margin-bottom: $gutter-two-thirds;
+      }
+    }
+    .description {
+      @include core-19;
+      margin-bottom: $gutter-two-thirds;
+    }
+
+    h4 {
+      @include bold-19;
+      margin-bottom: $gutter-one-third;
+      margin-top: $gutter-two-thirds;
+    }
+
+    .phone-detail {
+      margin-bottom: $gutter*2;
+      &:last-child {
+        margin-bottom: $gutter;
+      }
+
+      h3 {
+        @include bold-24;
+        margin-bottom: $gutter;
+      }
+      .call-charges {
+        margin-bottom: $gutter-two-thirds;
+      }
+      .phone-list {
+        @extend %contain-floats;
+
+        li {
+          padding-bottom: $gutter-one-third;
+          width: $full-width;
+
+          span {
+            @include core-19;
+            padding-right: $gutter-half;
+
+            &.value {
+              font-weight: bold;
+
+              a {
+                color: inherit;
+              }
+
+            }
+          }
+        }
+
+        @include media(mobile) {
+          margin-bottom: $gutter-half;
+        }
+      }
+    }
+  }
+
+  .online-forms {
+    margin-bottom: $gutter;
+
+    @include media(tablet) {
+      margin-bottom: $gutter*2;
+      width: $three-quarters;
+    }
+
+    > ul {
+      margin-left: 0;
+    }
+
+    ul {
+      margin-bottom: $gutter-half;
+      padding-left: 0;
+     li {
+        @include core-19;
+      }
+      ul li {
+        list-style-type: disc;
+      }
+    }
+
+    p {
+      margin-bottom: $gutter-half;
+    }
+  }
+
+  .vcard {
+    @include core-19;
+    margin-bottom: $gutter;
+  }
+
+  .beta-wrapper {
+    margin: 15px 0;
+
+    @include media(desktop) {
+      margin: 30px 0;
+    }
+  }
+}
