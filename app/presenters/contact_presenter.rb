@@ -1,5 +1,5 @@
 class ContactPresenter < ContentItemPresenter
- 
+
   PASS_THROUGH_KEYS = [
     :title, :details, :links, :web_url
   ].freeze
@@ -96,28 +96,40 @@ class ContactPresenter < ContentItemPresenter
     whitelisted_paths.include?(@content_item["base_path"])
   end
 
-  # WIP
+
   def related_links
-    sections = []
-
-    if content_item["quick_links"].to_a.any?
-      sections << {
+   [
+      {
         title: "Elsewhere on GOV.UK",
-        items: content_item["quick_links"].map { |quick_link|
-          { title: quick_link.title, url: quick_link.url }
-        }
-      }
-    end
-
-    if content_item["related_links"].to_a.any?
-      sections << {
+        id: "elsewhere",
+        items: normalised_elsewhere
+      },
+      {
         title: "Other contacts",
-        items: contact["quick-links"].map { |related_link|
-          { title: related_link.fetch("title"), url: related_link.fetch("base_path") }
-        }
+        id: "Other contacts",
+        items: normalised_related
       }
-    end
-
-    sections
+    ]
   end
+
+  private
+
+  # This is terrible, a govuk_component should maybe
+  # be indifferent themselves, and hide this
+  def indifferent(hash)
+    ActiveSupport::HashWithIndifferentAccess.new(hash)
+  end
+
+  def normalised_related
+    related_items = content_item["links"]["related"]
+    related_items.each do |related_item|
+      related_item["url"] = related_item["web_url"]
+    end
+    related_items.collect! { |ri| indifferent(ri)}
+  end
+
+  def normalised_elsewhere
+    content_item["details"]["quick_links"].collect! { |ql| indifferent(ql)}
+  end
+
 end
