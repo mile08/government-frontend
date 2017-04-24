@@ -97,10 +97,10 @@ class CaseStudyPresenterTest < PresenterTestCase
   end
 
   def presented_case_study_with_updates
-    march_21_2013 = DateTime.new(2013, 3, 21).to_s
+    update_time = DateTime.new(2013, 3, 21).to_s
     with_history = schema_item
-    with_history['details']['change_history'] = [{ 'note' => 'Something changed', 'public_timestamp' => march_21_2013 }]
-    with_history['public_updated_at'] = march_21_2013
+    with_history['details']['change_history'] = [{ 'note' => 'Something changed', 'public_timestamp' => update_time }]
+    with_history['public_updated_at'] = update_time
 
     presented_item(format_name, with_history)
   end

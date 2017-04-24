@@ -35,6 +35,7 @@ class ContentsListTest < ActiveSupport::TestCase
       { text: "One", id: "one" },
       { text: "Two", id: "two" },
       { text: "Three", id: "three" },
-      { text: "Four", id: "four" }], extract_headings_with_ids(html)
+      { text: "Four", id: "four" }
+], extract_headings_with_ids(html)
   end
 end
