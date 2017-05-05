@@ -5,8 +5,6 @@
     </div>
   <% end %>
   <div class="column-two-thirds <%= 'offset-one-third' unless content_item.image %>">
-    <%= render 'govuk_component/govspeak',
-        content: content_item.body,
-        direction: page_text_direction %>
+    <%= render 'govuk_component/govspeak', content_item.govspeak_body %>
   </div>
 </div>

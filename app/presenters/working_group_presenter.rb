@@ -27,6 +27,10 @@ class WorkingGroupPresenter < ContentItemPresenter
 
 private
 
+  def append_to_body
+    render_partial("content_items/additional_body_html/_working_group")
+  end
+
   def extra_headings
     extra_headings = []
     extra_headings << { id: "policies", text: "Policies" } if policies.any?

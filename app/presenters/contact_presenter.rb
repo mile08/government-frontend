@@ -1,5 +1,16 @@
 class ContactPresenter < ContentItemPresenter
   include TitleAndContext
+  include Body
+
+  def body
+    render_partial("content_items/additional_body_html/_contact")
+  end
+
+  def govspeak_body
+    super.tap do |g|
+      g[:rich_govspeak] = true
+    end
+  end
 
   def title_and_context
     super.tap do |t|

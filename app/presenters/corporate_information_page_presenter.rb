@@ -22,6 +22,10 @@ class CorporateInformationPagePresenter < ContentItemPresenter
 
 private
 
+  def append_to_body
+    render_partial("content_items/additional_body_html/_corporate_information_page")
+  end
+
   def extra_headings
     extra_headings = []
     extra_headings << corporate_information_heading if corporate_information?
