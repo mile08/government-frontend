@@ -123,6 +123,7 @@ private
     {
       "title" => "Summary",
       "slug" => "",
+      "full_path" => base_path,
       "body" => content_item["details"]["summary"]
     }
   end
